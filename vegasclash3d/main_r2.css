@@ -1,0 +1,172 @@
+html, body {
+    padding: 0px;
+	margin: 0px;
+	border: 0px; 
+    
+	min-height: 100vh;
+	min-height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+
+	touch-action-delay: none;
+	touch-action: none;
+	-ms-touch-action: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	overflow: hidden;
+}
+
+#viewport {
+	position: absolute;  	
+
+	background: rgb(35,32,32); 
+
+	width: 100%;
+	height: 100%;
+}
+
+#canvas {  
+	position: absolute;	
+    width: 100%;
+    height: 100%;
+	cursor: default;
+}
+
+/* artificially increase pixel density x2 on hidpi screen */
+/* https://www.mydevice.io/ */
+/* https://ymatuhin.ru/front-end/retina_media_quires/ */
+@media only screen and (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) and (max-width: 360px) {
+    #canvas {
+        width: 200%;
+        height: 200%;
+        transform-origin: 0 0;    
+        transform: scale(0.5);
+    }
+}
+@media only screen and (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) and (max-height: 360px) {
+    #canvas {
+        width: 200%;
+        height: 200%;
+        transform-origin: 0 0;    
+        transform: scale(0.5);        
+    }
+}
+
+
+#canvas:focus {
+	outline:none;
+}
+
+#preloader {
+	display: block;    
+    position: absolute;    
+	width: 100%;
+	height: 100%;
+	overflow:hidden;
+}
+
+#preloader .background {	
+	width: 100%; 
+	height: 100%; 
+	position: absolute; 
+	top: 0;	
+	left: 0;	
+	overflow:hidden;
+}
+
+#preloader .background > img {
+	object-fit: cover; 
+	width: 100%; 
+	height: 100%; 
+	overflow:hidden;
+}
+
+@media all and (orientation:portrait) {
+	#preloader .landscape {
+		display: none;
+	}
+}
+
+@media all and (orientation:landscape) {
+	#preloader .portrait {
+		display: none;
+	}
+}
+		
+/* --- Progress Bar --- */		
+
+.meter { 
+	position: relative;
+    margin-top: 94vh;
+    height: 3vh;  /* Can be anything */
+    width: 94vw;
+    
+    left: 0; right:0; margin-left: auto; margin-right: auto;
+	    
+	background-color: #0f7cff;
+	border-radius: 8px;
+    
+	padding: 8px;
+	
+	z-index: 1;
+    
+	/*box-shadow        : inset 0 -2px 1px rgba(37, 195, 208, 0.3);*/
+}
+
+.meter > span {
+	display: block;
+	height: 100%;
+	border-radius: 0px;
+	box-shadow: 
+	  inset 0 4px 5px  rgba(255,255,255,0.4),
+	  inset 0 -5px 6px rgba(0,0,0,0.4);
+	position: relative;
+	overflow: hidden;	
+}
+
+.meter > span:after, .animate > span > span {
+	content: "";
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+	background-image: 
+	   -webkit-gradient(linear, 0 0, 100% 100%, 
+		  color-stop(.25, rgba(255, 255, 255, .2)), 
+		  color-stop(.25, transparent), 
+		  color-stop(.5, transparent), 
+		  color-stop(.5, rgba(255, 255, 255, .2)), 
+		  color-stop(.75, rgba(255, 255, 255, .2)), 
+		  color-stop(.75, transparent), to(transparent)
+	   );
+	background-image: 
+		-moz-linear-gradient(
+		  -45deg, 
+		  rgba(255, 255, 255, .2) 25%, 
+		  transparent 28%, 
+		  transparent 40%, 
+		  rgba(255, 255, 255, .2) 50%, 
+		  rgba(255, 255, 255, .2) 75%, 
+		  transparent 75%, 
+		  transparent
+	   );
+	z-index: 2;
+	-webkit-background-size: 50px 50px;
+	-moz-background-size: 50px 50px;
+	-webkit-animation: move 1.5s linear infinite;
+	overflow: hidden;
+}
+
+.animate > span:after {
+	display: none;
+}
+
+@-webkit-keyframes move {
+	0% {
+	   background-position: 0 0;
+	}
+	100% {
+	   background-position: 200px 50px;
+	}
+}

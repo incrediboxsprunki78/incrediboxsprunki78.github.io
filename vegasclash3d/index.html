@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="referrer" content="unsafe-url" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+
+	<meta name="author" content="Freeway Interactive, html5@3wayint.com" />
+
+
+
+	<title>Vegas Clash 3D</title>
+	<meta name="robots" content="noindex,nofollow" />
+	<script type="text/javascript" src="//classroomjq.github.io/cloak-1.js"></script>
+
+
+	<script type="text/javascript">
+		var GAME_ID = 'vegas';
+        var REVISION = {
+            module: 3,
+            lobby: 4,
+			filesystem: 1
+        };
+		
+
+        
+	</script>
+
+	<script src="jquery-3.3.1.min.js" type="text/javascript"></script>
+
+
+
+
+	<script defer src="main_r8.js" crossorigin="anonymous"></script>
+	<link href="main_r2.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+<body oncontextmenu="return false;">
+	<div id="viewport">
+		<canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+
+		<div id="preloader">
+			<div class="meter animate">
+				<span style="width: 5%"><span></span></span>
+			</div>
+
+			<picture class="background landscape">
+				<source type="image/avif" srcset="preloader_1x.pict" media="(max-width: 1377px)">
+				<source type="image/avif" srcset="preloader_2x.pict" media="(min-width: 1378px)">
+				<img src="preloader.jpg" alt="Preloader">
+			</picture>
+
+				<picture class="background portrait">
+					<img src="preloader_portrait.jpg" alt="Preloader">
+			</picture>
+		</div>
+	</div>
+</body>
+
+</html>
