@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>Yeah Bunny</title>
+
+	<script>
+	window.config = {
+		loader: 'unity',
+		debug: false,
+		maxRatio: 16 / 9,
+		minRatio: 9 / 16,
+
+		title: 'Yeah Bunny',
+
+		thumbnail: 'thumb.png',
+		numScreenshots: 4,
+
+		unityWebglBuildUrl: 'Build/yb poki_new.json',
+		unityWebglLoaderUrl: 'UnityLoader.js',
+
+		// **** Optional Settings ****
+		fileSize: 18,
+		loadingComments: ['Loading...'],
+		cachedDecompressedFileSizes: {
+			'yb poki_new.wasm.framework.unityweb':457334,
+			'yb poki_new.wasm.code.unityweb':13520748,
+			'yb poki_new.data.unityweb':16178783,
+		},
+		//
+	};
+	</script>
+</head>
+<body>
+	<script src="master-loader.js"></script> 
+</html>
